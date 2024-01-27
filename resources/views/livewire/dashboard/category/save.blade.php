@@ -4,21 +4,15 @@
 {{--   Consultas:     https://laravel-livewire.com/docs/2.x/properties#binding-inputs-to-properties--}}
 
         <!-- Campo de título -->
-
-        <h3 class="text-xl">***{{$title}}***</h3>
-        <label for="">Título</label>
-        <input type="text" wire:model.live.debounce="title"><br>
-
+        <x-label for="">{{__('Title')}}</x-label>
         @error('title') <span class="error bg-red-600 text-white">{{ $message }}</span> @enderror
-        <br>
+        <x-input type="text" wire:model="title" />
 
         <!-- Campo de texto -->
-        <label for="">Texto</label>
-        <input type="text" wire:model="text"><br>
-        <h3 class="text-xl">***{{$text}}***</h3>
-        @error('text') <span class="error bg-red-600 text-white">{{ $message }}</span> @enderror
-        <br>
+        <x-label for="">{{__('Text')}}</x-label>
+        <x-input type="text" wire:model="text"/>
+
         <!-- Botón de enviar -->
-        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-black font-bold py-2 px-4 rounded">Enviar</button>
+        <x-button type="submit" class="bg-blue-500 hover:bg-blue-700 text-black font-bold py-2 px-4 rounded">{{__('Send')}}</x-button>
     </form>
 </div>

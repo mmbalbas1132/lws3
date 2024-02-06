@@ -26,6 +26,8 @@ Route::group(['middleware' => ['auth:sanctum', 'verified'], 'prefix' => 'dashboa
         Route::get('/', \App\Livewire\Dashboard\Category\Index::class)->name('d-category-index'); // Listado
         Route::get('/create', \App\Livewire\Dashboard\Category\Save::class)->name('d-category-create'); // Formulario de creación
         Route::get('/edit/{id}', \App\Livewire\Dashboard\Category\Save::class)->name('d-category-edit'); // Formulario de edición
+//        Route::get('/category/delete/{id}', \App\Livewire\Dashboard\Category\Delete::class)->name('d-category-delete');
+
     });
 
     // CRUD para etiquetas

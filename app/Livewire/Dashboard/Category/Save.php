@@ -5,14 +5,13 @@ namespace App\Livewire\Dashboard\Category;
 use App\Models\Category;
 use Illuminate\Support\Str;
 use Livewire\Component;
-use Livewire\Features\SupportFileUploads\WithFileUploads;
-use Log;
+
+
 
 class Save extends Component
 {
-    use WithFileUploads;
-//    En este caso no es necesario porque no se cargan archivos en este componente
 
+    public $category;
     public $title;
     public $text;
 
@@ -21,6 +20,15 @@ class Save extends Component
         'text' => 'nullable|min:10',
     ];
 
+    public function mount($id = null)
+    {
+        if ($id) {
+            $this->category = Category::findOrFail($id);
+            $this->title = $this->category->title;
+            $this->text = $this->category->text;
+        }
+    }
+
     public function render()
     {
         return view('livewire.dashboard.category.save')->layout('layouts.app');
@@ -28,62 +36,24 @@ class Save extends Component
 
     public function submit()
     {
-        // Validación de los campos con mensajes personalizados
         $this->validate();
 
-        // Creación de la categoría
-        Category::create([
-            'title' => $this->title,
-            'slug' => Str::slug($this->title),
-            'text' => $this->text,
-        ]);
+        if (isset($this->category->id)) {
+            $this->category->update([
+                'title' => $this->title,
+                'text' => $this->text,
+            ]);
+        } else {
+            $this->category = Category::create([
+                'title' => $this->title,
+                'slug' => Str::slug($this->title),
+                'text' => $this->text,
+            ]);
+        }
 
-        // Restablecer los campos
         $this->reset(['title', 'text']);
-    }
-    public function boot()
-    {
-        Log::info('boot');
-    }
-    public function booted()
-    {
-        Log::info('booted');
-    }
-    public function mount()
-    {
-        Log::info('mount');
-    }
-    public function hydrateTitle($value)
-    {
-        Log::info('hydrateTitle');
-    }
-  public function dehydrateFoo ($value)
-  {
-      Log::info('dehydrateFoo $value');
-  }
-  public function hydrate()
-  {
-      Log::info('hydrate');
-  }
-    public function dehydrate()
-    {
-        Log::info('dehydrate');
-    }
-    public function updating($name, $value)
-    {
-        Log::info('updating $name $value');
-    }
-    public function updated($name, $value)
-    {
-        Log::info('updated $name $value');
-    }
-    public function updatingTitle($value)
-    {
-        Log::info('updatingTitle $value');
-    }
-    public function updatedTitle($value)
-    {
-        Log::info('updatedTitle $value');
+        // Opcionalmente, resetear también $this->category si se desea reutilizar el formulario para crear otra nueva categoría
+        // $this->reset(['category', 'title', 'text']);
     }
 }
 

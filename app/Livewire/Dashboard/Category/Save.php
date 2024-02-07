@@ -41,19 +41,22 @@ class Save extends Component
         if (isset($this->category->id)) {
             $this->category->update([
                 'title' => $this->title,
+                'slug' => Str::slug($this->title),
                 'text' => $this->text,
             ]);
+            $this->dispatch('updated'); // Emite el evento 'updated' con el id de la categoría
         } else {
             $this->category = Category::create([
                 'title' => $this->title,
                 'slug' => Str::slug($this->title),
                 'text' => $this->text,
             ]);
+            $this->dispatch('created'); // Emite el evento 'created' con el id de la categoría
         }
 
-        $this->reset(['title', 'text']);
+        $this->reset(['category','title', 'text']);
         // Opcionalmente, resetear también $this->category si se desea reutilizar el formulario para crear otra nueva categoría
-        // $this->reset(['category', 'title', 'text']);
+        // $this->reset([, 'title', 'text']);
     }
 }
 

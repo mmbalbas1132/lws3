@@ -1,4 +1,7 @@
 <div>
+    <x-action-message on="deleted" class="text-lg text-white bg-red-500 p-4 rounded-md">
+         <strong>{{__('Deleted category success')}}</strong>
+    </x-action-message>
 <h1>Listado</h1>
 <table class="table w-full">
     <thead>

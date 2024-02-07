@@ -67,6 +67,7 @@
     "Create Team": "Crear equipo",
     "Create a new team to collaborate with others on projects.": "Cree un nuevo equipo para colaborar con otros en proyectos.",
     "Created": "Creado",
+    "Created category success": "Categoría creada con éxito",
     "Created.": "Creado.",
     "Current Password": "Contraseña actual",
     "Dashboard": "Panel",
@@ -74,6 +75,7 @@
     "Delete API Token": "Borrar token API",
     "Delete Account": "Borrar cuenta",
     "Delete Team": "Borrar equipo",
+    "Deleted category success": "Categoría eliminada con éxito",
     "Detach": "Desvincular",
     "Details": "Detalles",
     "Disable": "Deshabilitar",
@@ -325,6 +327,7 @@
     "Update :name": "Actualizar :name",
     "Update Password": "Actualizar contraseña",
     "Update your account's profile information and email address.": "Actualice la información de su cuenta y la dirección de correo electrónico.",
+    "Updated category success": "Categoría actualizada con éxito",
     "Upgrade Required": "Se requiere actualización",
     "Use Proxy": "Usa proxy",
     "Use a recovery code": "Use un código de recuperación",
@@ -349,10 +352,10 @@
     "You may not delete your personal team.": "No se puede borrar su equipo personal.",
     "You may not leave a team that you created.": "No se puede abandonar un equipo que usted creó.",
     "Your email address is unverified.": "Su dirección de correo electrónico no está verificada.",
+    "manuel_s": "de Manuel",
     "of": "de",
     "results": "resultados",
     "text": "texto",
     "title": "título",
-    "to": "al",
-    "manuel_s": "de Manuel"
+    "to": "al"
 }

@@ -20,6 +20,7 @@ class Index extends Component
 
     public function delete(Category $category)
     {
+        $this->dispatch('deleted'); // Emite el evento 'delete' con el id de la categoría
         $category->delete();
 
     }

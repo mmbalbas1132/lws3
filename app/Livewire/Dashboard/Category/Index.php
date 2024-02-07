@@ -17,4 +17,8 @@ class Index extends Component
         $categories = Category::paginate(5); // Obtiene los datos paginados
         return view('livewire.dashboard.category.index', compact('categories'))->layout('layouts.app');
     }
+    public function delete(Category $category)
+    {
+        $category->delete();
+    }
 }
